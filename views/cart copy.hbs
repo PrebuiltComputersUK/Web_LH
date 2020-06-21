@@ -1,0 +1,58 @@
+<h1>{{title}}</h1>
+<a href="/"><i class="fas fa-arrow-left"></i> Continue Shopping</a>
+{{# if products }}
+    {{# each products }}
+    <ul class="list-group">
+        <li class="list-group-item d-flex w-100 justify-content-between align-items-center">
+            <div>
+                <h5 class="mb-2 h5">{{ this.item.Description }}</h5>
+                <img src="{{{ this.item.Thumbnail }}}" alt="{{ this.item.Description }}">
+            </div>
+            <div>
+                <a class="btn btn-sm btn-success" href="/remove/{{ this.item.ProductID }}">
+                    <i class="fas fa-plus-square"></i>
+                </a>
+                <p class="badge badge-float cyan"><i class="fas fa-layer-group"></i> {{ this.quantity }}</p>
+                <p class="badge badge-float badge-dark">£{{ this.Cost }} GBP</p>
+                <a class="btn btn-sm btn-danger" href="/add/{{ this.item.ProductID }}">
+                    <i class="fas fa-minus-square"></i>
+                </a>
+            </div>
+        </li>
+    </ul>
+    {{/each}}
+<hr class="divider">
+<ul class="list-group">
+    <li class="list-group-item text-center">
+        <b class="btn-block btn-small btn-outline-primary">Total: £{{ totalPrice }} GBP</b>
+        <hr>
+        <div id="paypal-button"></div>
+    </li>
+</ul>
+{{ else }}
+<ul class="list-group">
+    <li class="list-group-item d-flex w-100 justify-content-between text-center">
+        <b>Your shopping cart is empty.</b>
+    </li>
+</ul>
+{{/if}}
+<script src="https://www.paypal.com/sdk/js?client-id=AUwms2AwgeHsx55D1pqJTm829Q_CsvKA0oUpc3bGbk7R7T1L3xcIgL8gb-xbH4jR4d_2fWcbilGvfCFN&currency=GBP"></script>
+<script>
+    paypal.Buttons({
+        createOrder: function (data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: cart.totalPrice
+                    }
+                }]
+            });
+        },
+        onApprove: function (data, actions) {
+            return actions.order.capture().then(
+                function (details) { 
+
+                });
+        }
+    }).render('#paypal-button');
+</script>

@@ -1,0 +1,101 @@
+<div id="mdb-preloader" class="flex-center">
+  <div id="preloader-markup">
+    <div class="preloader-wrapper big active crazy">
+      <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark elegant-color">
+  <div class="container">
+    <a class="navbar-brand "  href="https://prebuiltcomputers.uk/">
+      <img src="https://prebuiltcomputers.uk/images/Favicon.png" height="32" alt="Prebuilt Computer UK Logo">
+      <strong class="orange-text">Prebuilt</strong> <strong class="blue-text">Computers</strong> <strong class="light-blue-text darken-2">UK</strong>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent0">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent0">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light "  href="https://prebuiltcomputers.uk/contact">
+            <i class="fas fa-envelope"></i> Contact Us
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light "  href="https://builder.prebuiltcomputers.uk">
+            <i class="fas fa-wrench"></i> Custom PC Builder
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light "  href="https://builds.prebuiltcomputers.uk/">
+            <i class="fas fa-wrench mr-3"></i>Custom PC Builds and Quotes
+          </a>
+        </li>
+        <li class="nav-item dropdown ml-3">
+          <a class="nav-link dropdown-toggle waves-effect waves-light " id="navbarDropdownMenuLink-1" data-toggle="dropdown">
+            <i class="fas fa-balance-scale"></i> Legal </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-danger" aria-labelledby="navbarDropdownMenuLink-1">
+              <a class="dropdown-item waves-effect waves-light "  href="https://prebuiltcomputers.uk/terms"><i class="fas fa-book-open"></i> Terms and Conditions</a>
+              <a class="dropdown-item waves-effect waves-light "  href="https://prebuiltcomputers.uk/privacy"><i class="fas fa-book"></i> Privacy Policy</a>
+            </div>
+          </li>
+          <li class="nav-item ml-3">
+            <a class="nav-link waves-effect waves-light " href="https://prebuiltcomputers.uk/cart"><i class="fas fa-cart-arrow-down"></i> Cart
+              {{# if session.cart.totalItems }}
+              <span class="badge badge-primary">{{session.cart.totalItems}} Item(s)</span>
+              {{/if}}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container mt-5 pt-3">
+  <nav class="navbar navbar-expand-lg navbar-dark warning-color-dark mb-5">
+    <a class=" mr-4 white-text">Categories</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link"  href="https://prebuiltcomputers.uk/desktops"><i class="fas fa-home"></i> Desktops</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="https://prebuiltcomputers.uk/gaming-desktops"><i class="fas fa-headset"></i> Gaming Desktops</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="https://prebuiltcomputers.uk/workstations"><i class="fas fa-bolt"></i> Workstations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="https://prebuiltcomputers.uk/laptops"><i class="fas fa-plane"></i> Laptops</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="https://prebuiltcomputers.uk/accessories"><i class="fas fa-keyboard"></i> Accessories</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="container mt-5 pt-3">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    Due to manufacturing issues across the world, our stock levels are not up to the normal state of availability.
+    However, we're committed to Pre-Ordering wanted items and will work closely with you, to make sure that you get the products you want.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>

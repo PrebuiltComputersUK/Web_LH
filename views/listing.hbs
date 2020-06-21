@@ -1,0 +1,151 @@
+<!--Section: Block Content-->
+<section class="mb-5">
+
+  <div class="row">
+    <div class="col-md-6 mb-4 mb-md-0">
+
+      <div id="mdb-lightbox-ui"></div>
+
+      <div class="mdb-lightbox">
+
+        <div class="row product-gallery mx-1">
+
+          <div class="col-12 mb-0">
+            <figure class="view overlay rounded z-depth-1 main-img">
+              <a href="/product/images/{{prduct.ProductID}}.jpg"
+                data-size="710x823">
+                <img src="/product/images/{{prduct.ProductID}}.jpg"
+                  class="img-fluid z-depth-1">
+              </a>
+            </figure>
+            <figure class="view overlay rounded z-depth-1" style="visibility: hidden;">
+              <a href="/product/images/{{prduct.ProductID}}.jpg"
+                data-size="710x823">
+                <img src="/product/images/{{prduct.ProductID}}.jpg"
+                  class="img-fluid z-depth-1">
+              </a>
+            </figure>
+            <figure class="view overlay rounded z-depth-1" style="visibility: hidden;">
+              <a href="/product/images/{{prduct.ProductID}}.jpg"
+                data-size="710x823">
+                <img src="/product/images/{{prduct.ProductID}}.jpg"
+                  class="img-fluid z-depth-1">
+              </a>
+            </figure>
+            <figure class="view overlay rounded z-depth-1" style="visibility: hidden;">
+              <a href="/product/images/{{prduct.ProductID}}.jpg"
+                data-size="710x823">
+                <img src="/product/images/{{prduct.ProductID}}.jpg"
+                  class="img-fluid z-depth-1">
+              </a>
+            </figure>
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-3">
+                <div class="view overlay rounded z-depth-1 gallery-item">
+                  <img src="/product/images/{{prduct.ProductID}}.jpg"
+                    class="img-fluid">
+                  <div class="mask rgba-white-slight"></div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="view overlay rounded z-depth-1 gallery-item">
+                  <img src="/product/images/{{prduct.ProductID}}.jpg"
+                    class="img-fluid">
+                  <div class="mask rgba-white-slight"></div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="view overlay rounded z-depth-1 gallery-item">
+                  <img src="/product/images/{{prduct.ProductID}}.jpg"
+                    class="img-fluid">
+                  <div class="mask rgba-white-slight"></div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="view overlay rounded z-depth-1 gallery-item">
+                  <img src="/product/images/{{prduct.ProductID}}.jpg"
+                    class="img-fluid">
+                  <div class="mask rgba-white-slight"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-md-6">
+
+      <h5>{{ product.Description }}</h5>
+      <p class="mb-2 text-muted text-uppercase small">{{ product.Category }}</p>
+      <p><span class="mr-1"><strong>£{{product.Cost }} GBP</strong></span></p>
+      <p class="pt-1">{{ product.Details }}</p>
+      <hr>
+      <div class="table-responsive mb-2">
+        <table class="table table-sm table-borderless">
+          <tbody>
+            <tr>
+              <td class="pl-0 pb-0 w-25">Stock</td>
+              <td class="pb-0">Price</td>
+            </tr>
+            <tr>
+              <td class="pl-0">
+                {{product.Stock }} Available
+              </td>
+              <td class="pl-0">
+                £{{product.Cost }} GBP
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button type="button" href="/item/add/{{product.ProductID}}" class="btn btn-primary btn-md mr-1 mb-2">Buy now</button>
+      <button type="button" href="/item/add/{{product.ProductID}}" class="btn btn-light btn-md mr-1 mb-2">
+          <i class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
+    </div>
+  </div>
+
+</section>
+<!--Section: Block Content-->
+
+<div class="classic-tabs border rounded px-4 pt-1">
+  <ul class="nav tabs-primary nav-justified" id="advancedTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active show" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">Information</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="advancedTabContent">
+    <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+      <h5>Product Description</h5>
+      <p class="small text-muted text-uppercase mb-2">{{ product.Category }}</p>
+      <h6>{{ product.Cost }}</h6>
+      <p class="pt-1">{{ product.Details }}</p>
+    </div>
+    <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
+      <h5>Additional Information</h5>
+      <table class="table table-striped table-bordered mt-3">
+        <thead>
+          <tr>
+            <th scope="row" class="w-150 dark-grey-text h6">Weight</th>
+            <td><em>{{ product.Weight }}</em></td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+  // MDB Lightbox Init
+  $(function () {
+    $("#mdb-lightbox-ui").load("/mdb-addons/mdb-lightbox-ui.html");
+  });
+});
+</script>
