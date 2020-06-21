@@ -20,21 +20,27 @@
 
                 <!-- Name -->
                 <div class="md-form md-outline mt-0">
-                  <input type="text" id="name" class="form-control">
+                  <input type="text" id="name" name="name" class="form-control">
                   <label for="name">Name</label>
                 </div>
                 <!-- Email -->
                 <div class="md-form md-outline">
-                  <input type="text" id="email" class="form-control">
+                  <input type="text" id="email" name="email" class="form-control">
                   <label for="email">Email Address</label>
                 </div>
                 <!-- Message -->
                 <div class="md-form md-outline">
-                  <textarea id="message" class="md-textarea form-control" rows="3"></textarea>
+                  <textarea id="message" name="message" class="md-textarea form-control" rows="3"></textarea>
                   <label for="message">Message</label>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-md btn-block ml-0 mb-0">Submit Email</button>
+                <button data-sitekey="6LcMpacZAAAAAEXA1g3YmgEubyfa_X5kRvjmKVWA"
+                data-callback='onSubmit'
+                data-action='submit'
+                type="submit"
+                class="g-recaptcha btn btn-primary btn-md btn-block ml-0 mb-0">
+                    Submit Email
+                </button>
 
               </div>
             </div>
@@ -67,30 +73,3 @@
 
 
 </div>
-
-{{msg}}
-<form method="POST" action="send">
-    <p>
-    <label>Name</label>
-    <input type="text" name="name">
-    </p>
-    <p>
-    <label>Company</label>
-    <input type="text" name="company">
-    </p>
-    <p>
-    <label>Email Address</label>
-    <input type="email" name="email">
-    </p>
-    <p>
-    <label>Phone Number</label>
-    <input type="text" name="phone">
-    </p>
-    <p>
-    <label>Message</label>
-    <textarea name="message" rows="5"></textarea>
-    </p>
-    <p>
-    <button type="submit">Submit</button>
-    </p>
-</form>
