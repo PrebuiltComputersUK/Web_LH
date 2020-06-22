@@ -82,7 +82,7 @@ parseStream.on("data", chunk => {
     });
     try {
         if (fs.existsSync("public/products/images/" + chunk["Product Number"] + ".jpg")) {
-            console.log(chunk["Product Number"] + ".jpg" + " exists.");
+            
         } else {
             download(chunk["Main Image"], `public/products/images/` + chunk["Product Number"] + `.jpg`, function() {
                 console.log("done " + chunk["Product Number"] + ".jpg");

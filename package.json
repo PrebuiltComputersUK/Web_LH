@@ -24,6 +24,7 @@
         "nodemailer": "^6.4.10",
         "papaparse": "^5.2.0",
         "paypal-rest-sdk": "^1.8.1",
+        "recaptcha": "^1.2.1",
         "request": "^2.88.2",
         "serve-favicon": "~2.4.2"
     },

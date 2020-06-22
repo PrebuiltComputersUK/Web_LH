@@ -1,14 +1,15 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var hbs = require('hbs');
-var session = require('express-session');
-var index = require('./routes/index');
-var app = express();
-var paypal = require('./models/paypal');
+const express = require('express'),
+path = require('path'),
+favicon = require('serve-favicon'),
+logger = require('morgan'),
+cookieParser = require('cookie-parser'),
+bodyParser = require('body-parser'),
+hbs = require('hbs'),
+session = require('express-session'),
+index = require('./routes/index'),
+app = express(),
+paypal = require('./models/paypal'),
+request = require('request');
 
 
 // view engine setup
