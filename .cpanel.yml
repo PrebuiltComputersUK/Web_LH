@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/prebuilt/repositories/Web_LH/
+    - /bin/cp -R * $DEPLOYPATH

@@ -105,53 +105,46 @@ router.get('/contact', function(req, res, next) {
     });
 });
 
-router.post('/send', function(req, res, next) {
-    Recaptcha.verify(req, function(error, data){
-        if (!req.Recaptcha.error) {
-            const output = `
-                <p>This email was sent as proof that the email has been received by contact@prebuiltcomputers.uk and is for your eyes only.</p>
-                <h3>Contact Details</h3>
-                <ul>
-                    <li>Name: ${req.body.name}</li>
-                    <li>Name: ${req.body.email}</li>
-                </ul>
-                <h3>Message</h3>
-                <p>${req.body.message}</p>
-            `;
-            // create reusable transporter object using the default SMTP transport
-            let transporter = nodemailer.createTransport({
-                host: 'mail.prebuiltcomputers.uk',
-                port: 465,
-                secure: true, // true for 465, false for other ports
-                auth: {
-                    user: 'contact@prebuiltcomputers.uk',
-                    pass: 'Eggshells_21'
-                },
-                tls:{
-                    rejectUnauthorized:false
-                }
-            });
-            // setup email data with unicode symbols
-            let mailOptions = {
-                from: '"Contact @ Prebuilt Computers UK" <contact@prebuiltcomputers.uk>', // sender address
-                to: `${req.body.email}`, // list of receivers
-                subject: '${res.body.name} has sent a Contact Request.', // Subject line
-                text: '', // plain text body
-                html: output // html body
-            };
-            // send mail with defined transport object
-            transporter.sendMail(mailOptions, (error, info) => {
-                if (error) {
-                    return console.log(error);
-                }
-                console.log('Message sent: %s', info.messageId);   
-                console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-
-                res.render('contact', {msg:'Email has been sent to contact@prebuiltcomputers.uk.'});
-            });
-        } else {
-            res.render('contact', {msg:`Recaptcha failed: ${req.recaptcha.error}`});
+router.post('/send-contact', function(req, res, next) {
+    const output = `
+        <p>This email was sent as proof that the email has been received by contact@prebuiltcomputers.uk and is for your eyes only.</p>
+        <h3>Contact Details</h3>
+        <ul>
+            <li>Name: ${req.body.name}</li>
+            <li>Email: ${req.body.email}</li>
+        </ul>
+        <h3>Message</h3>
+        <p>${req.body.message}</p>
+    `;
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+        host: 'mail.prebuiltcomputers.uk',
+        port: 465,
+        secure: true, // true for 465, false for other ports
+        auth: {
+            user: 'contact@prebuiltcomputers.uk',
+            pass: 'Eggshells_21'
+        },
+        tls:{
+            rejectUnauthorized:false
         }
+    });
+    // setup email data with unicode symbols
+    let mailOptions = {
+        from: '"System " <contact@prebuiltcomputers.uk>', // sender address
+        to: `contact@prebuiltcomputers.uk`, // list of receivers
+        subject: `${req.body.name} has sent a Contact Request.`, // Subject line
+        text: '', // plain text body
+        html: output // html body
+    };
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: %s', info.messageId);   
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+        res.render('contact', {msg:'Email has been sent to contact@prebuiltcomputers.uk.'});
     });
 });
 

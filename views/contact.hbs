@@ -16,8 +16,19 @@
 
             <div class="card">
               <div class="card-body px-4">
-                {{msg}}
 
+                {{#if msg}}
+                  {{msg}}
+                  <hr>
+                  <a href="/contact" class="btn btn-primary btn-md btn-block ml-0 mb-0">
+                    send another message
+                  </a>
+                  <br><br>
+                  <a href="/" class="btn btn-primary btn-md btn-block ml-0 mb-0">
+                    got to homepage
+                  </a>
+                {{/if}}
+<hr>
                 <!-- Name -->
                 <div class="md-form md-outline mt-0">
                   <input type="text" id="name" name="name" class="form-control">
@@ -33,12 +44,7 @@
                   <textarea id="message" name="message" class="md-textarea form-control" rows="3"></textarea>
                   <label for="message">Message</label>
                 </div>
-
-                <button data-sitekey="6LcMpacZAAAAAEXA1g3YmgEubyfa_X5kRvjmKVWA"
-                data-callback='onSubmit'
-                data-action='submit'
-                type="submit"
-                class="g-recaptcha btn btn-primary btn-md btn-block ml-0 mb-0">
+                <button href="/send" class="btn btn-primary btn-md btn-block ml-0 mb-0">
                     Submit Email
                 </button>
 
@@ -70,6 +76,5 @@
 
   </section>
   <!--Section: Content-->
-
 
 </div>
