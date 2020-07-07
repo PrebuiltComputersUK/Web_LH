@@ -1,13 +1,1 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# Dependencies
 /node_modules
-gamma.csv
-# IntelliJ
-.idea/
-/out/
-
-# mpeltonen/sbt-idea plugin
-.idea_modules/
-*.csv
-*.csv
