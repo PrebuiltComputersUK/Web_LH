@@ -20,6 +20,7 @@
         "fs": "0.0.1-security",
         "ftp": "^0.3.10",
         "hbs": "^4.0.3",
+        "json-2-csv": "^3.7.5",
         "morgan": "~1.9.1",
         "nodemailer": "^6.4.10",
         "papaparse": "^5.2.0",

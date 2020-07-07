@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Cart = require('../models/cart');
-const products = require('../products');
-const nodemailer = require('nodemailer');
+const fs = require('fs');
+const request = require("request");
 
 router.get('/', function(req, res, next) {
     res.render("index", {
@@ -10,6 +9,82 @@ router.get('/', function(req, res, next) {
         products: products,
     });
 });
+
+const products = require('../products');
+
+router.get(`/build`, function(req, res, next) {
+    const buildFiles = fs.readdirSync('../builds').filter(file => file.endsWith('.js'));
+    for (const file of buildFiles) {
+        const buildFile = require(`../builds/${file}`);
+    }
+}); // router
+
+router.get(`/build/:buildName`, function(req, res, next) {
+
+    const builds = require(`../builds/${req.params.buildName}`);
+
+    function deliver(inDays, startingOn) {
+        var s, f = 0,
+            d;
+        if (!inDays) inDays = 0;
+        s = !startingOn ? new Date : new Date(startingOn);
+        for (var i = 0, n, t = 0, l = inDays; i < l; i++, t += 86400000) {
+            n = new Date(s.getTime() + t).getDay();
+            if (n === 0 || n === 6) f++;
+        }
+        d = new Date(s.getTime() + 86400000 * (inDays + f));
+        return d.toLocaleDateString();
+    }
+
+    var dateMin = deliver(5);
+    var dateMax = deliver(7);
+    
+    function getItems(itemIds) {
+        const items = itemIds.map((id) => findById(id));
+        return items;
+    }
+    
+    function findById(id) {
+        return products.find((product) => product.ProductID === id);
+    }
+    
+    function init(itemIds) {
+        const items = getItems(itemIds);
+        console.log(items);
+        return items;
+    }
+    
+    const items = init([
+        builds.mb.Product,
+        builds.cpu.Product,
+        builds.cooling.Product,
+        builds.gpu.Product,
+        builds.mem.Product,
+        builds.psu.Product,
+        builds.case.Product,
+        builds.drive1.Product,
+        builds.drive2.Product,
+        builds.drive3.Product,
+        builds.drive4.Product,
+        builds.optical.Product,
+        builds.accessories.Product,
+        builds.fans.Product
+    ]);
+
+    res.render('builds', {
+        title: builds.title,
+        build: builds,
+        mb:items[0],cpu:items[1],cooling:items[2],gpu:items[3],
+        mem:items[4],psu:items[5],case:items[6],
+        drive1:items[7],drive2:items[8],drive3:items[9],drive4:items[10],
+        optical:items[11],access:items[12],fans:items[13],
+        dateMin: dateMin,
+        dateMax: dateMax
+    });
+
+}); // router
+
+const Cart = require('../models/cart');
 
 router.get('/item/add/:id', function(req, res, next) {
     var productId = req.params.id;
@@ -114,31 +189,45 @@ router.get('/privacy', function(req, res, next) {
     });
 });
 
-router.get('/desktops', function(req, res, next) {
-    res.render('desktops', {
-        title: 'Desktop PCs',
-        builds: builds
+router.get('/returns', function(req, res, next) {
+    res.render('Returns', {
+        title: 'Returns Policy'
     });
 });
 
-router.get('/gaming-desktops', function(req, res, next) {
-    res.render('gaming_desktops', {
-        title: 'Gaming Desktop PCs'
+router.get('/disclaimer', function(req, res, next) {
+    res.render('disclaimer', {
+        title: 'Disclaimer Policy'
     });
 });
 
-router.get('/workstation', function(req, res, next) {
-    res.render('workstation_desktops', {
-        title: 'Workstation Desktop PCs'
+router.get('/cookies', function(req, res, next) {
+    res.render('cookies', {
+        title: 'Cookies Policy'
+    });
+});
+
+router.get('/home-office', function(req, res, next) {
+    res.render('office', {
+        title: 'Home/Office Computers'
+    });
+});
+
+router.get('/gaming', function(req, res, next) {
+    res.render('ga', {
+        title: 'Gaming Computers'
+    });
+});
+
+router.get('/workstations', function(req, res, next) {
+    res.render('workstation', {
+        title: 'Workstations'
     });
 });
 
 router.get('/laptops', function(req, res, next) {
-    var itemproduct = products.filter(function(el) {
-        return el.ProductID == req.params.id;
-    });
     res.render('laptops', {
-        title: 'Laptop PCs'
+        title: 'Laptops'
     });
 });
 

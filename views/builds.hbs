@@ -1,0 +1,398 @@
+    <div class="container">
+        <div class="card-deck">
+            <div class="card mb-4">
+              <h5 class="card-header h5">{{ build.title }}</h5>
+              <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card-text">
+                            This build is a {{ build.systemtype }} system, with;<br>
+                            <small>table of contents:</small>
+                            <ol>
+                              <li><a href="#motherboard-pic"><u>{{ mb.Description }}</u></a></li>
+                              <li><a href="#processor-pic"><u>{{ cpu.Description }}</u></a></li>
+                              <li><a href="#cooling-pic"><u>{{ cooling.Description }}</u></a></li>
+                              <li><a href="#graphics-pic"><u>{{ gpu.Description }}</u></a></li>
+                              <li><a href="#memory-pic"><u>{{ mem.Description }}</u></a></li>
+                              <li><a href="#power-pic"><u>{{ psu.Description }}</u></a></li>
+                              <li><a href="#case-pic"><u>{{ case.Description }}</u></a></li>
+                              <li><a href="#drive1-pic"><u>{{ drive1.Description }}</u></a></li>
+                              <li><a href="#drive2-pic"><u>{{ drive2.Description }}</u></a></li>
+                              <li><a href="#drive3-pic"><u>{{ drive3.Description }}</u></a></li>
+                              <li><a href="#drive4-pic"><u>{{ drive4.Description }}</u></a></li>
+                              <li><a href="#accessories-pic"><u>{{ accesss.Description }}</u></a></li>
+                              <li><a href="#optical-pic"><u>{{ optical.Description }}</u></a></li>
+                              <li><a href="#fans-pic"><u>{{ fans.Description }}</u></a></li>
+                              <li><a href="#os-pic"><u>Windows 10 Professional 64-bit Operating System</u></a></li>
+                            </ol>
+                          </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-text">
+                            <a class="btn btn-outline-info btn-block" href="#paypal-button-container1">Build Price: <span id="totalsAll1"></span></a>
+                            <hr>
+                            <div id="paypal-button-container1"></div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+                <div class="card-footer text-muted text-center mt-4">
+                    If one of these items is out of stock, and you'd like this product as soon as possible, please contact us at: <a href="mailto:contact@prebuiltcomputers.uk"><u>contact@prebuiltcomputers.uk</u></a>
+                    <hr> 
+                        Minimum Expected Delivery Date: {{dateMin}}
+                        <br>
+                        Maximum Expected Delivery Date: {{dateMax}}
+                    <hr>
+                    Before ordering, please make sure to read;<br>
+                    <a class="grey-text font-weight-bold" target="_blank" href="https://www.prebuiltcomputers.uk/terms"><u>Terms and Conditions</u></a> |
+                    <a class="grey-text font-weight-bold" target="_blank" href="https://www.prebuiltcomputers.uk/ordering-procedures"><u>Ordering Procedures</u></a> |
+                    <a class="grey-text font-weight-bold" target="_blank" href="https://www.prebuiltcomputers.uk/delivery-rates"><u>Delivery Rates</u></a>
+                    <hr> 
+                    Finally, for anything else click our links, or contact us directly.
+                    <a class="grey-text font-weight-bold" target="_blank" href="https://www.prebuiltcomputers.uk/faq"><u>FAQ</u></a> |
+                    <a class="grey-text font-weight-bold" target="_blank" href="https://discord.prebuiltcomputers.uk/"><u>Discord Server</u></a> |
+                    <a href="mailto:contact@prebuiltcomputers.uk"><u>contact@prebuiltcomputers.uk</u></a>
+                </div>
+            </div>
+        </div>
+        <div class="card-deck">
+          <div class="card mb-3">
+              <div class="view view-cascade overlay">
+                  <img class="mx-auto d-block" alt="Motherboard" id="motherboard-pic" height="250" src="{{ mb.Thumbnail }}">
+                  <a>
+                      <div class="mask rgba-white-slight"></div>
+                  </a>
+              </div>
+              <h5 class="card-header h5">{{ mb.Category }}</h5>
+              <div class="card-body text-center">
+                  <h4 class="card-title" id="motherboard-title">{{ mb.Description }}</h4>
+              </div>
+              <div class="card-footer text-muted text-center mt-4">
+                  <div class="btn btn-outline-success">
+                      Item Price:<br>
+                      <i class="fas fa-pound-sign"></i> <span id="motherboard-amount">{{mb.Cost}}</span>
+                  </div>
+                  <div class="btn btn-outline-success">
+                      Item Stock:<br>
+                      <i class="fas fa-cubes"></i> <span id="motherboard-stock">{{mb.Stock}}</span>
+                  </div>
+              </div>
+          </div>
+          <div class="card mb-3">
+            <div class="view view-cascade overlay">
+                <img class="mx-auto d-block" alt="Processor" id="processor-pic" height="250" src="{{ cpu.Thumbnail }}">
+                <a>
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <h5 class="card-header h5">{{ cpu.Category }}</h5>
+            <div class="card-body text-center">
+                <h4 class="card-title" id="processor-title">{{ cpu.Description }}</h4>
+            </div>
+            <div class="card-footer text-muted text-center mt-4">
+                <div class="btn btn-outline-success">
+                    Item Price:<br>
+                    <i class="fas fa-pound-sign"></i> <span id="processor-amount">{{cpu.Cost}}</span>
+                </div>
+                <div class="btn btn-outline-success">
+                    Item Stock:<br>
+                    <i class="fas fa-cubes"></i> <span id="processor-stock">{{cpu.Stock}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="view view-cascade overlay">
+                <img class="mx-auto d-block" alt="Cooling" id="cooling-pic" height="250" src="{{ cooling.Thumbnail }}">
+                <a>
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <h5 class="card-header h5">{{ cooling.Category }}</h5>
+            <div class="card-body text-center">
+                <h4 class="card-title" id="cooling-title">{{ cooling.Description }}</h4>
+            </div>
+            <div class="card-footer text-muted text-center mt-4">
+                <div class="btn btn-outline-success">
+                    Item Price:<br>
+                    <i class="fas fa-pound-sign"></i> <span id="cooling-amount">{{ cooling.Cost }}</span>
+                </div>
+                <div class="btn btn-outline-success">
+                    Item Stock:<br>
+                    <i class="fas fa-cubes"></i> <span id="cooling-stock">{{ cooling.Stock }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3">
+          <div class="view view-cascade overlay">
+              <img class="mx-auto d-block" alt="Graphics Card" id="graphics-pic" height="250" src="{{ gpu.Thumbnail }}">
+              <a>
+                  <div class="mask rgba-white-slight"></div>
+              </a>
+          </div>
+          <h5 class="card-header h5">{{ gpu.Category }}</h5>
+          <div class="card-body text-center">
+              <h4 class="card-title" id="graphics-title">{{ gpu.Description }}</h4>
+          </div>
+          <div class="card-footer text-muted text-center mt-4">
+              <div class="btn btn-outline-success">
+                  Item Price:<br>
+                  <i class="fas fa-pound-sign"></i> <span id="graphics-amount">{{ gpu.Cost }}</span>
+              </div>
+              <div class="btn btn-outline-success">
+                  Item Stock:<br>
+                  <i class="fas fa-cubes"></i> <span id="graphics-stock">{{ gpu.Stock }}</span>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="card-deck">
+        <div class="card mb-3">
+          <div class="view view-cascade overlay">
+              <img class="mx-auto d-block" alt="Memory" id="memory-pic" height="250" src="{{ mem.Thumbnail }}">
+              <a>
+                  <div class="mask rgba-white-slight"></div>
+              </a>
+          </div>
+          <h5 class="card-header h5">{{ mem.Category }}</h5>
+          <div class="card-body text-center">
+              <h4 class="card-title" id="memory-title">{{ mem.Description }}</h4>
+          </div>
+          <div class="card-footer text-muted text-center mt-4">
+              <div class="btn btn-outline-success">
+                  Item Price:<br>
+                  <i class="fas fa-pound-sign"></i> <span id="memory-amount">{{ mem.Cost }}</span>
+              </div>
+              <div class="btn btn-outline-success">
+                  Item Stock:<br>
+                  <i class="fas fa-cubes"></i> <span id="memory-stock">{{ mem.Stock }}</span>
+              </div>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="view view-cascade overlay">
+              <img class="mx-auto d-block" alt="Power Supply" id="power-pic" height="250" src="{{ psu.Thumbnail }}">
+              <a>
+                  <div class="mask rgba-white-slight"></div>
+              </a>
+          </div>
+          <h5 class="card-header h5">{{ psu.Category }}</h5>
+          <div class="card-body text-center">
+              <h4 class="card-title" id="power-title">{{ psu.Description }}</h4>
+          </div>
+          <div class="card-footer text-muted text-center mt-4">
+              <div class="btn btn-outline-success">
+                  Item Price:<br>
+                  <i class="fas fa-pound-sign"></i> <span id="power-amount">{{ psu.Cost }}</span>
+              </div>
+              <div class="btn btn-outline-success">
+                  Item Stock:<br>
+                  <i class="fas fa-cubes"></i> <span id="power-stock">{{ psu.Stock }}</span>
+              </div>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="view view-cascade overlay">
+              <img class="mx-auto d-block" alt="Case" id="case-pic" height="250" src="{{ case.Thumbnail }}">
+              <a>
+                  <div class="mask rgba-white-slight"></div>
+              </a>
+          </div>
+          <h5 class="card-header h5">{{ case.Category }}</h5>
+          <div class="card-body text-center">
+              <h4 class="card-title" id="case-title">{{ case.Description }}</h4>
+          </div>
+          <div class="card-footer text-muted text-center mt-4">
+              <div class="btn btn-outline-success">
+                  Item Price:<br>
+                  <i class="fas fa-pound-sign"></i> <span id="case-amount">{{ case.Cost }}</span>
+              </div>
+              <div class="btn btn-outline-success">
+                  Item Stock:<br>
+                  <i class="fas fa-cubes"></i> <span id="case-stock">{{ case.Stock }}</span>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="card-deck">
+        <div class="card mb-3">
+          <div class="view view-cascade overlay">
+              <img class="mx-auto d-block" alt="Drives" id="drive1-pic" height="250" src="{{ drive1.Thumbnail }}">
+              <a>
+                  <div class="mask rgba-white-slight"></div>
+              </a>
+          </div>
+          <h5 class="card-header h5">{{ drive1.Category }}</h5>
+          <div class="card-body text-center">
+              <h4 class="card-title" id="drive1-title">{{ drive1.Description }}</h4>
+          </div>
+          <div class="card-footer text-muted text-center mt-4">
+              <div class="btn btn-outline-success">
+                  Item Price:<br>
+                  <i class="fas fa-pound-sign"></i> <span id="drive1-amount">{{ drive1.Cost }}</span>
+              </div>
+              <div class="btn btn-outline-success">
+                  Item Stock:<br>
+                  <i class="fas fa-cubes"></i> <span id="drive1-stock">{{ drive1.Stock }}</span>
+              </div>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="view view-cascade overlay">
+              <img class="mx-auto d-block" alt="Drives" id="drive2-pic" height="250" src="{{ drive2.Thumbnail }}">
+              <a>
+                  <div class="mask rgba-white-slight"></div>
+              </a>
+          </div>
+          <h5 class="card-header h5">{{ drive2.Category }}</h5>
+          <div class="card-body text-center">
+              <h4 class="card-title" id="drive2-title">{{ drive2.Description }}</h4>
+          </div>
+          <div class="card-footer text-muted text-center mt-4">
+              <div class="btn btn-outline-success">
+                  Item Price:<br>
+                  <i class="fas fa-pound-sign"></i> <span id="drive2-amount">{{ drive2.Cost }}</span>
+              </div>
+              <div class="btn btn-outline-success">
+                  Item Stock:<br>
+                  <i class="fas fa-cubes"></i> <span id="drive2-stock">{{ drive2.Stock }}</span>
+              </div>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="view view-cascade overlay">
+              <img class="mx-auto d-block" alt="Drives" id="drive3-pic" height="250" src="{{ drive3.Thumbnail }}">
+              <a>
+                  <div class="mask rgba-white-slight"></div>
+              </a>
+          </div>
+          <h5 class="card-header h5">{{ drive3.Category }}</h5>
+          <div class="card-body text-center">
+              <h4 class="card-title" id="drive3-title">{{ drive3.Description }}</h4>
+          </div>
+          <div class="card-footer text-muted text-center mt-4">
+              <div class="btn btn-outline-success">
+                  Item Price:<br>
+                  <i class="fas fa-pound-sign"></i> <span id="drive3-amount">{{ drive3.Cost }}</span>
+              </div>
+              <div class="btn btn-outline-success">
+                  Item Stock:<br>
+                  <i class="fas fa-cubes"></i> <span id="drive3-stock">{{ drive3.Stock }}</span>
+              </div>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="view view-cascade overlay">
+              <img class="mx-auto d-block" alt="Drives" id="drive4-pic" height="250" src="{{ drive4.Thumbnail }}">
+              <a>
+                  <div class="mask rgba-white-slight"></div>
+              </a>
+          </div>
+          <h5 class="card-header h5">{{ drive4.Category }}</h5>
+          <div class="card-body text-center">
+              <h4 class="card-title" id="drive4-title">{{ drive4.Description }}</h4>
+          </div>
+          <div class="card-footer text-muted text-center mt-4">
+              <div class="btn btn-outline-success">
+                  Item Price:<br>
+                  <i class="fas fa-pound-sign"></i> <span id="drive4-amount">{{ drive4.Cost }}</span>
+              </div>
+              <div class="btn btn-outline-success">
+                  Item Stock:<br>
+                  <i class="fas fa-cubes"></i> <span id="drive4-stock">{{ drive4.Stock }}</span>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="card-deck">
+        <div class="card mb-3">
+          <div class="view view-cascade overlay">
+              <img class="mx-auto d-block" alt="Optical Disk" id="optical-pic" height="250" src="{{ optical.Thumbnail }}">
+              <a>
+                  <div class="mask rgba-white-slight"></div>
+              </a>
+          </div>
+          <h5 class="card-header h5">{{ optical.Category }}</h5>
+          <div class="card-body text-center">
+              <h4 class="card-title" id="optical-title">{{ optical.Description }}</h4>
+          </div>
+          <div class="card-footer text-muted text-center mt-4">
+              <div class="btn btn-outline-success">
+                  Item Price:<br>
+                  <i class="fas fa-pound-sign"></i> <span id="optical-amount">{{ optical.Cost }}</span>
+              </div>
+              <div class="btn btn-outline-success">
+                  Item Stock:<br>
+                  <i class="fas fa-cubes"></i> <span id="optical-stock">{{ optical.Stock }}</span>
+              </div>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="view view-cascade overlay">
+              <img class="mx-auto d-block" alt="Accessories" id="accessories-pic" height="250" src="{{ access.Thumbnail }}">
+              <a>
+                  <div class="mask rgba-white-slight"></div>
+              </a>
+          </div>
+          <h5 class="card-header h5">{{ access.Category }}</h5>
+          <div class="card-body text-center">
+              <h4 class="card-title" id="accessories-title">{{ access.Description }}</h4>
+          </div>
+          <div class="card-footer text-muted text-center mt-4">
+              <div class="btn btn-outline-success">
+                  Item Price:<br>
+                  <i class="fas fa-pound-sign"></i> <span id="accessories-amount">{{ access.Cost }}</span>
+              </div>
+              <div class="btn btn-outline-success">
+                  Item Stock:<br>
+                  <i class="fas fa-cubes"></i> <span id="accessories-stock">{{ access.Stock }}</span>
+              </div>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="view view-cascade overlay">
+              <img class="mx-auto d-block" alt="Fans" id="fans-pic" height="250" src="{{ fans.Thumbnail }}">
+              <a>
+                  <div class="mask rgba-white-slight"></div>
+              </a>
+          </div>
+          <h5 class="card-header h5">{{ fans.Category }}</h5>
+          <div class="card-body text-center">
+              <h4 class="card-title" id="fans-title">{{ fans.Description }}</h4>
+          </div>
+          <div class="card-footer text-muted text-center mt-4">
+              <div class="btn btn-outline-success">
+                  Item Price:<br>
+                  <i class="fas fa-pound-sign"></i> <span id="fans-amount">{{ fans.Cost }}</span>
+              </div>
+              <div class="btn btn-outline-success">
+                  Item Stock:<br>
+                  <i class="fas fa-cubes"></i> <span id="fans-stock">{{ fans.Stock }}</span>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="card-deck">
+        <div class="card mb-3">
+          <div class="view view-cascade overlay">
+              <img class="mx-auto d-block" alt="Operating System" id="os-pic" height="250" src="/images/windows10pro.jpg">
+              <a>
+                  <div class="mask rgba-white-slight"></div>
+              </a>
+          </div>
+          <h5 class="card-header h5">Operating System</h5>
+          <div class="card-body text-center">
+              <h4 class="card-title" id="os-title">Microsoft Windows 10 Professional 64-bit</h4>
+          </div>
+          <div class="card-footer text-muted text-center mt-4">
+              <div class="btn btn-outline-success">
+                  Item Price:<br>
+                  <i class="fas fa-pound-sign"></i> <span id="os-amount">25.99</span>
+              </div>
+              <div class="btn btn-outline-success">
+                  Item Stock:<br>
+                  <i class="fas fa-cubes"></i> <span id="os-stock">unlimited</span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
