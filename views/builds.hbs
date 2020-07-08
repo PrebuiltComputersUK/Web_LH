@@ -1,3 +1,4 @@
+    <script src="https://www.paypal.com/sdk/js?client-id=Af4l6MV89841SFWc20VsEvCZxz-gM6Owl2S2pjXqAmG4xQRBG9smAtU5xgjobAKF70DnGb_K63D6XdgT"></script>
     <div class="container">
         <div class="card-deck">
             <div class="card mb-4">
@@ -6,7 +7,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card-text">
-                            This build is a {{ build.systemtype }} system, with;<br>
+                            This <u id="bldName">{{ build.nane }}</u>build is a {{ build.systemtype }} system, with;<br>
                             <small>table of contents:</small>
                             <ol>
                               <li><a href="#motherboard-pic"><u>{{ mb.Description }}</u></a></li>
@@ -29,9 +30,9 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card-text">
-                            <a class="btn btn-outline-info btn-block" href="#paypal-button-container1">Build Price: <span id="totalsAll1"></span></a>
+                            <a class="btn btn-outline-info btn-block" href="#paypal-button-container">Build Price: <span id="totalsAll"></span></a>
                             <hr>
-                            <div id="paypal-button-container1"></div>
+                            <div id="paypal-button-container"></div>
                         </div>
                     </div>
                 </div>
@@ -70,11 +71,11 @@
               <div class="card-footer text-muted text-center mt-4">
                   <div class="btn btn-outline-success">
                       Item Price:<br>
-                      <i class="fas fa-pound-sign"></i> <span id="motherboard-amount">{{mb.Cost}}</span>
+                      <i class="fas fa-pound-sign"></i> <span id="motherboard-amount">{{#if mb.Cost}}{{mb.Cost }}{{else}}0{{/if}}</span>
                   </div>
                   <div class="btn btn-outline-success">
                       Item Stock:<br>
-                      <i class="fas fa-cubes"></i> <span id="motherboard-stock">{{mb.Stock}}</span>
+                      <i class="fas fa-cubes"></i> <span id="motherboard-stock">{{mb.Stock }}</span>
                   </div>
               </div>
           </div>
@@ -92,11 +93,11 @@
             <div class="card-footer text-muted text-center mt-4">
                 <div class="btn btn-outline-success">
                     Item Price:<br>
-                    <i class="fas fa-pound-sign"></i> <span id="processor-amount">{{cpu.Cost}}</span>
+                    <i class="fas fa-pound-sign"></i> <span id="processor-amount">{{#if cpu.Cost }}{{cpu.Cost }}{{else}}0{{/if}}</span>
                 </div>
                 <div class="btn btn-outline-success">
                     Item Stock:<br>
-                    <i class="fas fa-cubes"></i> <span id="processor-stock">{{cpu.Stock}}</span>
+                    <i class="fas fa-cubes"></i> <span id="processor-stock">{{cpu.Stock }}</span>
                 </div>
             </div>
         </div>
@@ -114,7 +115,7 @@
             <div class="card-footer text-muted text-center mt-4">
                 <div class="btn btn-outline-success">
                     Item Price:<br>
-                    <i class="fas fa-pound-sign"></i> <span id="cooling-amount">{{ cooling.Cost }}</span>
+                    <i class="fas fa-pound-sign"></i> <span id="cooling-amount">{{#if cooling.Cost }}{{ cooling.Cost }}{{else}}0{{/if}}</span>
                 </div>
                 <div class="btn btn-outline-success">
                     Item Stock:<br>
@@ -136,7 +137,7 @@
           <div class="card-footer text-muted text-center mt-4">
               <div class="btn btn-outline-success">
                   Item Price:<br>
-                  <i class="fas fa-pound-sign"></i> <span id="graphics-amount">{{ gpu.Cost }}</span>
+                  <i class="fas fa-pound-sign"></i> <span id="graphics-amount">{{#if gpu.Cost }}{{ gpu.Cost }}{{else}}0{{/if}}</span>
               </div>
               <div class="btn btn-outline-success">
                   Item Stock:<br>
@@ -160,7 +161,7 @@
           <div class="card-footer text-muted text-center mt-4">
               <div class="btn btn-outline-success">
                   Item Price:<br>
-                  <i class="fas fa-pound-sign"></i> <span id="memory-amount">{{ mem.Cost }}</span>
+                  <i class="fas fa-pound-sign"></i> <span id="memory-amount">{{#if mem.Cost }}{{ mem.Cost }}{{else}}0{{/if}}</span>
               </div>
               <div class="btn btn-outline-success">
                   Item Stock:<br>
@@ -182,7 +183,7 @@
           <div class="card-footer text-muted text-center mt-4">
               <div class="btn btn-outline-success">
                   Item Price:<br>
-                  <i class="fas fa-pound-sign"></i> <span id="power-amount">{{ psu.Cost }}</span>
+                  <i class="fas fa-pound-sign"></i> <span id="power-amount">{{#if psu.Cost }}{{ psu.Cost }}{{else}}0{{/if}}</span>
               </div>
               <div class="btn btn-outline-success">
                   Item Stock:<br>
@@ -204,7 +205,7 @@
           <div class="card-footer text-muted text-center mt-4">
               <div class="btn btn-outline-success">
                   Item Price:<br>
-                  <i class="fas fa-pound-sign"></i> <span id="case-amount">{{ case.Cost }}</span>
+                  <i class="fas fa-pound-sign"></i> <span id="case-amount">{{#if case.Cost }}{{ case.Cost }}{{else}}0{{/if}}</span>
               </div>
               <div class="btn btn-outline-success">
                   Item Stock:<br>
@@ -228,7 +229,7 @@
           <div class="card-footer text-muted text-center mt-4">
               <div class="btn btn-outline-success">
                   Item Price:<br>
-                  <i class="fas fa-pound-sign"></i> <span id="drive1-amount">{{ drive1.Cost }}</span>
+                  <i class="fas fa-pound-sign"></i> <span id="drive1-amount">{{#if drive1.Cost }}{{ drive1.Cost }}{{else}}0{{/if}}</span>
               </div>
               <div class="btn btn-outline-success">
                   Item Stock:<br>
@@ -250,7 +251,7 @@
           <div class="card-footer text-muted text-center mt-4">
               <div class="btn btn-outline-success">
                   Item Price:<br>
-                  <i class="fas fa-pound-sign"></i> <span id="drive2-amount">{{ drive2.Cost }}</span>
+                  <i class="fas fa-pound-sign"></i> <span id="drive2-amount">{{#if drive2.Cost }}{{ drive2.Cost }}{{else}}0{{/if}}</span>
               </div>
               <div class="btn btn-outline-success">
                   Item Stock:<br>
@@ -272,7 +273,7 @@
           <div class="card-footer text-muted text-center mt-4">
               <div class="btn btn-outline-success">
                   Item Price:<br>
-                  <i class="fas fa-pound-sign"></i> <span id="drive3-amount">{{ drive3.Cost }}</span>
+                  <i class="fas fa-pound-sign"></i> <span id="drive3-amount">{{#if drive3.Cost }}{{ drive3.Cost }}{{else}}0{{/if}}</span>
               </div>
               <div class="btn btn-outline-success">
                   Item Stock:<br>
@@ -294,7 +295,7 @@
           <div class="card-footer text-muted text-center mt-4">
               <div class="btn btn-outline-success">
                   Item Price:<br>
-                  <i class="fas fa-pound-sign"></i> <span id="drive4-amount">{{ drive4.Cost }}</span>
+                  <i class="fas fa-pound-sign"></i> <span id="drive4-amount">{{#if drive4.Cost }}{{ drive4.Cost }}{{else}}0{{/if}}</span>
               </div>
               <div class="btn btn-outline-success">
                   Item Stock:<br>
@@ -318,7 +319,7 @@
           <div class="card-footer text-muted text-center mt-4">
               <div class="btn btn-outline-success">
                   Item Price:<br>
-                  <i class="fas fa-pound-sign"></i> <span id="optical-amount">{{ optical.Cost }}</span>
+                  <i class="fas fa-pound-sign"></i> <span id="optical-amount">{{#if optical.Cost }}{{ optical.Cost }}{{else}}0{{/if}}</span>
               </div>
               <div class="btn btn-outline-success">
                   Item Stock:<br>
@@ -340,7 +341,7 @@
           <div class="card-footer text-muted text-center mt-4">
               <div class="btn btn-outline-success">
                   Item Price:<br>
-                  <i class="fas fa-pound-sign"></i> <span id="accessories-amount">{{ access.Cost }}</span>
+                  <i class="fas fa-pound-sign"></i> <span id="accessories-amount">{{#if access.Cost }}{{ access.Cost }}{{else}}0{{/if}}</span>
               </div>
               <div class="btn btn-outline-success">
                   Item Stock:<br>
@@ -362,7 +363,7 @@
           <div class="card-footer text-muted text-center mt-4">
               <div class="btn btn-outline-success">
                   Item Price:<br>
-                  <i class="fas fa-pound-sign"></i> <span id="fans-amount">{{ fans.Cost }}</span>
+                  <i class="fas fa-pound-sign"></i> <span id="fans-amount">{{#if fans.Cost }}{{ fans.Cost }}{{else}}0{{/if}}</span>
               </div>
               <div class="btn btn-outline-success">
                   Item Stock:<br>
@@ -396,3 +397,64 @@
         </div>
       </div>
     </div>
+    <script>
+    var bldName = document.getElementById("bldName").innerHTML;
+
+    function formatDecimal(val, n) {
+        n = n || 2;
+        var str = "" + Math.round(parseFloat(val) * Math.pow(10, n));
+        while (str.length <= n) {
+            str = "0" + str;
+        }
+        var pt = str.length - n;
+        return str.slice(0, pt) + "." + str.slice(pt);
+    };
+
+    var parts = 
+        parseInt(document.getElementById("motherboard-amount").innerHTML) +
+        parseInt(document.getElementById("processor-amount").innerHTML) +
+        parseInt(document.getElementById("cooling-amount").innerHTML) +
+        parseInt(document.getElementById("graphics-amount").innerHTML) +
+        parseInt(document.getElementById("memory-amount").innerHTML) +
+        parseInt(document.getElementById("power-amount").innerHTML) +
+        parseInt(document.getElementById("case-amount").innerHTML) +
+        parseInt(document.getElementById("drive1-amount").innerHTML) +
+        parseInt(document.getElementById("drive2-amount").innerHTML) +
+        parseInt(document.getElementById("drive3-amount").innerHTML) +
+        parseInt(document.getElementById("drive4-amount").innerHTML) +
+        parseInt(document.getElementById("fans-amount").innerHTML) +
+        parseInt(document.getElementById("accessories-amount").innerHTML) +
+        parseInt(document.getElementById("optical-amount").innerHTML) +
+        parseInt(document.getElementById("os-amount").innerHTML);
+    if (parts > 600) {
+        var delivery = 0;
+    } else {
+        var delivery = 8;
+    };
+    var packaging = 2;
+    var shipping = 15.59;
+    var profit = (parts * 0.15);
+    var st = parts + packaging + delivery + shipping + profit;
+    var paypalfix = 0.3;
+    var paypalcent = Math.ceil(0.029 * st);
+    var end = st + paypalfix + paypalcent;
+    document.getElementById("totalsAll").innerHTML = "\u00A3 " + formatDecimal(end);
+
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                description: `${bldName}`,
+                purchase_units: [{
+                    amount: {
+                        value: end
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Transaction completed by: ' + details.payer.name.given_name + ` For: ${bldName}`);
+            });
+        }
+    }).render('#paypal-button-container');
+    </script>    
