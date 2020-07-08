@@ -3,74 +3,74 @@ build = {
     title: 'Build #0 - Codename: ',
     systemtype: 'AMD',
     mb: {
-        Product: "",
-        html: "motherboard",
-        amount: ""
+        Product: '',
+        html: 'motherboard',
+        amount: ''
     },
     cpu: {
-        Product: "",
-        html: "processor",
-        amount: ""
+        Product: '',
+        html: 'processor',
+        amount: ''
     },
     cooling: {
-        Product: "",
-        html: "cooling",
-        amount: ""
+        Product: '',
+        html: 'cooling',
+        amount: ''
     },
     gpu: {
-        Product: "",
-        html: "graphics",
-        amount: ""
+        Product: '',
+        html: 'graphics',
+        amount: ''
     },
     mem: {
-        Product: "",
-        html: "memory",
-        amount: ""
+        Product: '',
+        html: 'memory',
+        amount: ''
     },
     psu: {
-        Product: "",
-        html: "power",
-        amount: ""
+        Product: '',
+        html: 'power',
+        amount: ''
     },
     case: {
-        Product: "",
-        html: "case",
-        amount: ""
+        Product: '',
+        html: 'case',
+        amount: ''
     },
     drive1: {
-        Product: "",
-        html: "drive1",
-        amount: ""
+        Product: '',
+        html: 'drive1',
+        amount: ''
     },
     drive2: {
-        Product: "",
-        html: "drive2",
-        amount: ""
+        Product: '',
+        html: 'drive2',
+        amount: ''
     },
     drive3: {
-        Product: "",
-        html: "drive3",
-        amount: ""
+        Product: '',
+        html: 'drive3',
+        amount: ''
     },
     drive4: {
-        Product: "",
-        html: "drive4",
-        amount: ""
+        Product: '',
+        html: 'drive4',
+        amount: ''
     },
     optical: {
-        Product: "",
-        html: "optical",
-        amount: ""
+        Product: '',
+        html: 'optical',
+        amount: ''
     },
     accessories: {
-        Product: "",
-        html: "",
-        amount: ""
+        Product: '',
+        html: '',
+        amount: ''
     },
     fans: {
-        Product: "",
-        html: "fans",
-        amount: ""
+        Product: '',
+        html: 'fans',
+        amount: ''
     } 
 };
 module.exports = build;
