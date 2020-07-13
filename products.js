@@ -69,7 +69,7 @@ function ftpGamma() {
             Image: chunk["Main Image"],
             Weight: chunk.Weight
         });
-        try {
+        /*try {
             // make async
             if (fs.existsSync("public/products/images/" + chunk["Product Number"] + ".jpg")) {
                 
@@ -80,7 +80,7 @@ function ftpGamma() {
             }
         } catch (err) {
             console.error(err);
-        }
+        }*/
     });
     
     parseStream.on("finish", () => {
