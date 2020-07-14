@@ -23,37 +23,54 @@ function formatDecimal(val, n) {
     return str.slice(0, pt) + "." + str.slice(pt);
 };
 
+function FindImage(chunk){
+    var download = function(uri, filename, callback) {
+        request.head(uri, function(err, res, body) {
+            request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+        });
+    };
+    if (fs.existsSync("public/products/images/" + chunk["Product Number"] + ".jpg")) {} else {
+        download(chunk["Main Image"], `public/products/images/` + chunk["Product Number"] + `.jpg`, function() {
+            console.log("done " + chunk["Product Number"] + ".jpg");
+        });
+    };
+};
+
 function ftpGamma() {
     let ftp = new Client();
     ftp.on('ready', function() {
         console.log("Ready");
         ftp.get('gamma.csv', function(err, stream) {
+            console.log("Get");
             if (err) throw err;
-            stream.once('close', function() { ftp.end(); });
+            stream.on('close', function() { 
+                console.log("Close");
+                ftp.end();
+                ItemProduct();
+            });
             stream.pipe(fs.createWriteStream('gamma.csv'));
             fs.stat("gamma.csv", function(err, stats) {
                 let WrittenDoc = Date.now();
                 console.log(`Successfully written to gamma.csv. at: ${stats.mtime} ${WrittenDoc}`);
                 console.log(`Next Write in: ${Math.ceil(toExactHour() / 60000)} minutes`);
             });
-        })
-    })
+        });
+    });
     ftp.connect({
         host: '217.35.64.145',
         port: '21',
         user: 'gamma',
         password: '$$VT7624tc'
-    })
-    var download = function(uri, filename, callback) {
-        request.head(uri, function(err, res, body) {
-            request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-        });
-    };
+    });
+};
+
+function ItemProduct() {
     fs.createReadStream("./gamma.csv").pipe(parseStream);
-    //dataStream.pipe(parseStream);
     let products = [];
-    parseStream.on("data", chunk => {
-        //products.push(chunk);
+    parseStream.on('data', chunk => {
+        console.log(`start of chunk: `);
+        console.log(chunk);
+        FindImage(chunk);
         products.push({
             ProductID: chunk["Product Number"],
             ManufacturerID: chunk["Manufacturer Number"],
@@ -69,24 +86,13 @@ function ftpGamma() {
             Image: chunk["Main Image"],
             Weight: chunk.Weight
         });
-        /*try {
-            // make async
-            if (fs.existsSync("public/products/images/" + chunk["Product Number"] + ".jpg")) {
-                
-            } else {
-                download(chunk["Main Image"], `public/products/images/` + chunk["Product Number"] + `.jpg`, function() {
-                    console.log("done " + chunk["Product Number"] + ".jpg");
-                });
-            }
-        } catch (err) {
-            console.error(err);
-        }*/
     });
-    
+    parseStream.on('end', () => {
+        console.log(`csv to json has finished`);
+    });
     parseStream.on("finish", () => {
         console.log(products.length + " items");
     });
-
     module.exports = products;
 };
 
