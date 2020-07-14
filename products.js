@@ -29,9 +29,9 @@ function FindImage(chunk){
             request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
         });
     };
-    if (fs.existsSync("public/products/images/" + chunk["Product Number"] + ".jpg")) {} else {
-        download(chunk["Main Image"], `public/products/images/` + chunk["Product Number"] + `.jpg`, function() {
-            console.log("done " + chunk["Product Number"] + ".jpg");
+    if (fs.existsSync(`public/products/images/${chunk["Product Number"]}.jpg`)) {} else {
+        download(chunk["Main Image"], `public/products/images/${chunk["Product Number"]}.jpg`, function() {
+            console.log(`done ${chunk["Product Number"]}.jpg`);
         });
     };
 };
