@@ -40,18 +40,18 @@ router.get(`/build/:buildName`, function(req, res, next) {
     var dateMax = deliver(7);
     
     function getItems(itemIds) {
-        const items = itemIds.map((id) => findById(id))
-        return items
+        const items = itemIds.map((id) => findById(id));
+        return items;
     };
     
     function findById(id) {
-        return products.find((product) => product.ProductID === id)
+        return products.find((product) => product.ProductID === id);
     };
     
     function init(itemIds) {
-        const items = getItems(itemIds)
-        console.log(items)
-        return items
+        const items = getItems(itemIds);
+        console.log(items);
+        return items;
     };
     
     const items = init([
