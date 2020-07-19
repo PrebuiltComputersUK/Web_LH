@@ -2,15 +2,12 @@ const fs = require("fs");
 const Client = require('ftp');
 const time = 3600000;
 const toExactHour = () => time - (new Date().getTime() % time);
-
 const papa = require("papaparse");
 const request = require("request");
-
 const options = {
     header: true
 };
 
-//const dataStream = request.get("https://prebuiltcomputers.uk/gamma.csv");
 const parseStream = papa.parse(papa.NODE_STREAM_INPUT, options);
 
 function formatDecimal(val, n) {
@@ -68,9 +65,6 @@ function ItemProduct() {
     fs.createReadStream("./gamma.csv").pipe(parseStream);
     let products = [];
     parseStream.on('data', chunk => {
-        console.log(`start of chunk: `);
-        console.log(chunk);
-        FindImage(chunk);
         products.push({
             ProductID: chunk["Product Number"],
             ManufacturerID: chunk["Manufacturer Number"],
