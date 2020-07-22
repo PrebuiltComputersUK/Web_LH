@@ -1,5 +1,16 @@
-const fs = require("fs");
-const Client = require('ftp');
+const Client     = require('ftp');
+const parse      = require('csv-parse');
+const util       = require('util');
+const fs         = require('fs');
+const path       = require('path');
+const mysql      = require('mysql');
+const async      = require('async');
+const csvHeaders = require('csv-headers');
+
+const dbname = 'prebuilt_products';
+const tblnm  = 'products';
+const csvfn  = 'gamma.csv';
+
 const time = 3600000;
 const toExactHour = () => time - (new Date().getTime() % time);
 const papa = require("papaparse");
@@ -7,7 +18,6 @@ const request = require("request");
 const options = {
     header: true
 };
-
 const parseStream = papa.parse(papa.NODE_STREAM_INPUT, options);
 
 function formatDecimal(val, n) {
@@ -43,7 +53,7 @@ function ftpGamma() {
             stream.on('close', function() { 
                 console.log("Close");
                 ftp.end();
-                ItemProduct();
+                //ItemProduct();
             });
             stream.pipe(fs.createWriteStream('gamma.csv'));
             fs.stat("gamma.csv", function(err, stats) {
@@ -62,6 +72,7 @@ function ftpGamma() {
 };
 
 function ItemProduct() {
+    /*
     fs.createReadStream("./gamma.csv").pipe(parseStream);
     let products = [];
     parseStream.on('data', chunk => {
@@ -86,8 +97,10 @@ function ItemProduct() {
     });
     parseStream.on("finish", () => {
         console.log(products.length + " items");
+        module.exports = products;
+        console.log(products);
     });
-    module.exports = products;
+    */
 };
 
 ftpGamma();

@@ -1,26 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
-const request = require("request");
+const products = require('../products');
 
 router.get('/', function(req, res, next) {
     res.render("index", {
-        title: "Home, Office, Gaming & Professional Computers",
-        products: products,
+        title: "Home, Office, Gaming & Professional Computers"
     });
 });
 
-const products = require('../products');
-
-router.get(`/build`, function(req, res, next) {
-    const buildFiles = fs.readdirSync('../builds').filter(file => file.endsWith('.js'));
-    for (const file of buildFiles) {
-        const buildFile = require(`../builds/${file}`);
-    }
-}); // router
+/*
 
 router.get(`/build/:buildName`, function(req, res, next) {
-
+    console.log(products);
     const builds = require(`../builds/${req.params.buildName}`);
 
     function deliver(inDays, startingOn) {
@@ -45,6 +37,7 @@ router.get(`/build/:buildName`, function(req, res, next) {
     };
     
     function findById(id) {
+        console.log(products);
         return products.find((product) => product.ProductID === id);
     };
     
@@ -171,6 +164,8 @@ router.get('/cart', function(req, res, next) {
     });
 });
 
+*/
+
 router.get('/contact', function(req, res, next) {
     res.render('contact', {
         title: 'Contact Us'
@@ -238,25 +233,25 @@ router.get('/accessories', function(req, res, next) {
 });
 
 router.get('/amd', function(req, res, next) {
-    res.render('amd-builds', {
+    res.render('amd/amd', {
         title: 'AMD'
     });
 });
 
-router.get('/amd-about', function(req, res, next) {
-    res.render('amd-about', {
+router.get('/amd/about', function(req, res, next) {
+    res.render('amd/about', {
         title: 'About AMD'
     });
 });
 
 router.get('/intel', function(req, res, next) {
-    res.render('intel-builds', {
+    res.render('intel/intel', {
         title: 'Intel'
     });
 });
 
-router.get('/intel', function(req, res, next) {
-    res.render('intel-about', {
+router.get('/intel/about', function(req, res, next) {
+    res.render('intel/about', {
         title: 'About Intel'
     });
 });
